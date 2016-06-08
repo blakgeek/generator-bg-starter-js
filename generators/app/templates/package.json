@@ -1,0 +1,46 @@
+{
+    "name": "<%= _.slugify(_.humanize(appname)) %>",
+    "version": "<%= version %>",
+    "description": "<%= description %>",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+<%= ghUrl %>.git"
+    },
+    "keywords": [
+        "spreadsheet",
+        "angular",
+        "angularjs",
+        "javascript",
+        "import",
+        "xls",
+        "xlsx",
+        "csv",
+        "tsv"
+    ],
+    "author": "Carlos \"blakgeek\" Lawton",
+    "license": "MIT",
+    "bugs": {
+        "url": "<%= ghUrl %>/issues"
+    },
+    "homepage": "<%= ghUrl %>#readme",
+    "devDependencies": {
+        "grunt": "^0.4.5",<% if(features.ng) { %>
+        "grunt-angular-templates": "^1.0.3",
+        <% } %>
+        "grunt-bower-concat": "^1.0.0",
+        "grunt-concurrent": "^2.3.0",
+        "grunt-contrib-clean": "^1.0.0",
+        "grunt-contrib-concat": "^1.0.1",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-sass": "^1.0.0",
+        "grunt-contrib-uglify": "^1.0.1",
+        "grunt-contrib-watch": "^1.0.0",
+        "grunt-open": "^0.2.3",
+        "grunt-serve": "^0.1.6",
+        "load-grunt-tasks": "^3.5.0",
+        "grunt-bump": "^0.7.3"
+    }
+}

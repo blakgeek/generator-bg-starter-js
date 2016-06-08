@@ -1,0 +1,14 @@
+{
+    "name": "<%= _.slugify(_.humanize(appname)) %>",
+    "version": "<%= version %>",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        <% if(features.ng) { %>"angular": "<2"<% } %>
+    }
+}
