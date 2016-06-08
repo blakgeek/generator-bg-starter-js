@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         concurrent: {
             example: {
-                tasks: ['serve', 'watch:dev', 'open:example'],
+                tasks: ['serve', 'watch:example', 'open:example'],
                 options: {
                     logConcurrentOutput: true
                 }
@@ -88,14 +88,22 @@ module.exports = function(grunt) {
                 src: ['**/*.scss'],
                 dest: 'dev',
                 ext: '.css'
+
+            },
+            example: {
+                expand: true,
+                cwd: 'example',
+                src: ['**/*.scss'],
+                dest: 'example',
+                ext: '.css'
             }
         },
         watch: {
-            dev: {
+            example: {
                 files: ['src/**/*', 'example/**/*'],
-                tasks: 'dev',
+                tasks: 'example',
                 options: {
-                    livereload: false
+                    livereload: true
                 }
             }
         },
@@ -133,11 +141,12 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('example', [
-        'clean:dev',
-        'copy:dev',<% if(features.ng) { %>
-        'ngtemplates',<% } %>
-        'concat:dev',
-        'sass:dev',
+        'dev',
+        'sass:example'
+    ]);
+
+    grunt.registerTask('serve_example', [
+        'example',
         'concurrent:example'
     ]);
 

@@ -72,7 +72,7 @@ module.exports = yeoman.generators.Base.extend({
         var props = _.merge({}, this.props, {
             _: _s
         });
-        var templates = ['Gruntfile.js', 'package.json', 'bower.json'];
+        var templates = ['Gruntfile.js', 'package.json', 'bower.json', 'README.md'];
 
         // copy static files
         this.fs.copy(this.templatePath('**/*'), this.destinationPath());
